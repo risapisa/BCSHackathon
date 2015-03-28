@@ -5,10 +5,20 @@ Template.Vote.events({
     e.preventDefault();
     var id = this._id;
     var new_likes = this.likes;
-    new_likes ++;
+    var userID = Meteor.userId();
     var new_likedUsers = this.likedUsers;
-    new_likedUsers.push(Meteor.userId());
-
+     
+    console.log(new_likedUsers[0]);
+    for (var i=0; i<new_likedUsers.length; i++) {
+        if(userID == new_likedUsers[i]) {
+            break;
+        }else if((i == (new_likedUsers.length - 1)) && 
+                 userID != new_likedUsers[i]) {
+            new_likes++;     
+            new_likedUsers.push(Meteor.userId());
+        };
+    };
+     
     console.log(id);
     //find the item in the choice, then add the user 1, then add the user name -1
 
