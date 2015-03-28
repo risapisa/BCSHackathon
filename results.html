@@ -1,0 +1,97 @@
+<!--- 'query' and results -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+</head>
+</title>
+<body>
+<h1 style="font-family:Comic Sans Ms;text-align="center";font-size:20pt;
+color:#00FF00;>
+Vote for preferred price, type of food, and location from the choices below:
+</h1>
+
+<script type="text/javascript">
+
+  var auth = {
+  //
+  // Update with your auth tokens.
+  //
+  consumerKey: "9XwSOWPHKdgOU9hXNlw7hQ",
+  consumerSecret: "19coOfl3ywqwnmjhrNn_wkDAzuA",
+  accessToken: "gbaIzI_LWS4BfBCkNoyJsOCZ2fYCtjrI",
+  accessTokenSecret: "tBkK2tawtmUVvi14zd7993m4jTg",
+  serviceProvider: {
+    signatureMethod: "HMAC-SHA1"
+  }
+};
+var restaurants = '{"restaurants";[
+    {"price":"$", "type":"Chinese", "location":"Vancouver, BC"}, 
+    {"price":"$$", "type":"Indian", "location":"Vancouver, BC"},
+    {"price":"$$", "type":"Japanese", "location":"Vancouver, BC"},
+    {"price":"$$$", "type":"Thai", "location":"Vancouver, BC"},
+    {"price":"$", "type":"Pizza", "location":"Toronto, Ontario"},
+    {"price":"$$", "type":"Seafood", "location":"Toronto, Ontario"},
+    {"price":"$$$", "type":"Italian", "location":"Toronto, Ontario"},
+    {"price":"$$", "type":"Mexican", "location":"Montreal, Quebec"},
+    {"price":"$", "type":"Burgers", "location":"Montreal, Quebec"},
+    {"price":"$$$", "type":"Caribbean", "location":"Montreal, Quebec"}
+]}';
+
+var terms = 'restaurants';
+var near = 'Vancouver+BC';
+
+var near=prompt("Please enter the city","Vancouver");
+var restaurant_objects = JSON.parse(restaurants);
+var accessor = {
+  consumerSecret: auth.consumerSecret,
+  tokenSecret: auth.accessTokenSecret
+};
+
+parameters = [];
+parameters.push(['term', terms]);
+parameters.push(['location', near]);
+parameters.push(['callback', 'cb']);
+parameters.push(['oauth_consumer_key', auth.consumerKey]);
+parameters.push(['oauth_consumer_secret', auth.consumerSecret]);
+parameters.push(['oauth_token', auth.accessToken]);
+parameters.push(['oauth_signature_method', 'HMAC-SHA1']);
+
+var message = {
+  'action': 'http://api.yelp.com/v2/search',
+  'method': 'GET',
+  'parameters': parameters
+};
+
+OAuth.setTimestampAndNonce(message);
+OAuth.SignatureMethod.sign(message, accessor);
+
+var parameterMap = OAuth.getParameterMap(message.parameters);
+parameterMap.oauth_signature = OAuth.percentEncode(parameterMap.oauth_signature)
+console.log(parameterMap);
+
+<!-- match best restaurant by result of voting; call restaurant_objects to compare to results of voting-->
+var bestRestaurant = "";
+
+$.ajax({
+  'url': message.action,
+  'data': parameterMap,
+  'cache': true,
+  'dataType': 'jsonp',
+  'jsonpCallback': 'cb',
+  'success': function(data, textStats, XMLHttpRequest) {
+    console.log(data);
+    var output = prettyPrint(data);
+
+document.write("<h1>Result: </h1>");
+document.write("<h2>The best restaurant is: </h2>");
+document.write("<h3>bestRestaurant"</h3>");
+
+
+  }
+});
+
+
+</body>
+</html>
