@@ -7,10 +7,30 @@
 	      <ul class="breadcrumb">
 	        <li>
 	          <a href="/">Home</a>
-	          <span class="divider">/</span>
+	          <span class="divider">|</span>
 	        </li>
+	        <li>
+					{{#linkTo route="profile"}}Profile
+					{{/linkTo}}
+					<span class="divider">|</span>
+				</li>
+				<li>
+					{{#linkTo route="vote"}}Voting
+					{{/linkTo}}
+					<span class="profile_list">|</span>
+				</li>
+				<li>
+					{{#linkTo route="results"}}Results
+					{{/linkTo}}	
+					<span class="profile_list">|</span>
 
-	        {{> yield "breadcrumbs"}}
+				</li>
+				<li>
+					{{#linkTo route="recommend"}}Recommendations
+					{{/linkTo}}	
+				</li>				
+
+	        
 	      </ul>
 	    </div>
 

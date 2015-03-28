@@ -5,9 +5,26 @@
   <br>
    <div class="done">
     <input type="button" name="choice"/> {{name}}
+    <p>Likes: {{likes}}
+    </p>
   </div>
 	<br>
   {{/each}}
 
+<h1>Who Voted:</h1>
+{{#each foodChoice}}
+  <br>
+   
+    <p>
+    	Total Vote: {{likes}}
+    </p>
+
+    <p>
+    	Who voted:
+    	{{voters}}
+
+    </p>
+  <br>
+  {{/each}}
 
 </template>

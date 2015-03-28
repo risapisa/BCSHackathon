@@ -32,3 +32,17 @@ Router.route('?', {
   action: 'action',
   where: 'client'
 });
+
+Router.route('results', {
+  name: 'results',
+  controller: 'ResultsController',
+  action: 'action',
+  where: 'client'
+});
+
+Router.route('recommend', {
+  name: 'recommend',
+  controller: 'RecommendController',
+  action: 'action',
+  where: 'client'
+});

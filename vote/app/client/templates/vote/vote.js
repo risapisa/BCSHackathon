@@ -27,5 +27,9 @@ Template.Vote.events({
 Template.Vote.helpers({
 	foodChoice: function(){
 		return Choices.find();
+	},
+
+	voters: function(){
+		return this.likedUsers;
 	}
 });
