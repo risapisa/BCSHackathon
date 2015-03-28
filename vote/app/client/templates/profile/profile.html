@@ -1,0 +1,37 @@
+<template name="Profile">
+
+        {{#if currentUser}}
+  <form id="edit-profile" class="form edit-profile">
+  	
+  	<ul>
+  		<div align="middle">
+  			
+  			<img src="{{picurl}}" height="300"
+  			width="300" class="img-circle" />
+  		</div>
+  	</ul>
+  	<ul>
+  		<input type="text" name="displayname" value="{{displayname}}" placeholder="Display Name"/>
+  	</ul>
+  	<ul>
+  		<input type="text" name="group" value="{{group}}" placeholder="Group"/>
+  	</ul>
+  	<ul>
+  		<input type="text" name="picurl" value="{{picurl}}" placeholder="URL for photo"/>
+  	</ul>
+
+  	<ul>
+  		How about a nice uploaded photo?<br><br>
+  	  	<input type="file" name="pic" value="{{picture}}"/>
+  	</ul>
+    
+    <ul>
+        <input type="submit" class="btn btn-primary" value="Save"/>
+    </ul>
+	</form>
+
+
+      {{else}}
+      <p>Please sign in!</p>
+    {{/if}}
+</template>
