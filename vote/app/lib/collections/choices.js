@@ -1,8 +1,8 @@
-Profile = new Mongo.Collection('profile');
+Choices = new Mongo.Collection('choices');
 
 
 if (Meteor.isServer) {
-  Profile.allow({
+  Choices.allow({
     insert: function (userId, doc) {
       return true;
     },
@@ -16,5 +16,4 @@ if (Meteor.isServer) {
     }
   });
 
-  
 }

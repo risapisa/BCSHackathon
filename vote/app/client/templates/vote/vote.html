@@ -1,3 +1,13 @@
 <template name="Vote">
-  <h1>Find me in app/client/templates/vote/vote</h1>
+  <h1>Vote for your favourite food category</h1>
+
+  {{#each foodChoice}}
+  <br>
+   <div class="done">
+    <input type="button" name="choice"/> {{name}}
+  </div>
+	<br>
+  {{/each}}
+
+
 </template>

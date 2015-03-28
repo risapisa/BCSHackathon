@@ -25,3 +25,10 @@ Router.route('profile', {
   action: 'action',
   where: 'client'
 });
+
+Router.route('?', {
+  name: '?',
+  controller: '?Controller',
+  action: 'action',
+  where: 'client'
+});
