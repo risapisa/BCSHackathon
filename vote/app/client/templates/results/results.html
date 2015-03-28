@@ -1,13 +1,17 @@
 <template name="Results">
 	<h1>Who Voted:</h1>
-	{{#each foodChoice}}
+	
+
+{{#each foodChoice}}
   <br>
+  	<!-- <h3>{{name}}<h3> -->
    
     <p>
+    	{{name}}
+    	<br>
+    	<br>
     	Total Vote: {{likes}}
-    </p>
-
-    <p>
+   
     	Who voted:
     	{{voters}}
     </p>

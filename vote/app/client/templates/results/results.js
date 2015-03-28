@@ -9,4 +9,6 @@ Template.Results.helpers({
 	voters: function(){
 		return this.likedUsers;
 	}
+
+	
 });
