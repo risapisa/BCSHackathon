@@ -12,3 +12,9 @@ less
 bootstrap
 accounts-ui
 accounts-password
+http
+underscore
+meteorhacks:npm
+
+
+npm-container

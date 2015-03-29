@@ -17,10 +17,10 @@
 //   return ?.find();
 // });
 
-Meteor.publish('results', function (/* args */) {
-  return Results.find();
-});
+// Meteor.publish('results', function (/* args */) {
+//   return Results.find();
+// });
 
-Meteor.publish('recommend', function (/* args */) {
-  return Recommend.find();
-});
+// Meteor.publish('recommend', function (/* args */) {
+//   return Recommend.find();
+// });
